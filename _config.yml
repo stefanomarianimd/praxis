@@ -1,7 +1,4 @@
 title: Praxis
-description: >-
-  Notes from building a clinical information system for a single orthopaedic
-  practice — structured-at-source records, a longitudinal outcome registry, and
-  a guideline assistant that cannot answer without a citation.
+description: An evidence-grounded clinical assistant for a single orthopaedic practice.
 theme: jekyll-theme-primer
 lang: en

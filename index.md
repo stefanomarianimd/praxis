@@ -2,6 +2,8 @@
 title: Praxis
 ---
 
+# Praxis
+
 A clinical information system for a single orthopaedic practice, built by the surgeon who
 uses it. Hip and knee arthroplasty, sports knee, revision. Italy.
 
