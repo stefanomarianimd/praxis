@@ -101,11 +101,31 @@ near-OOD ones:
   four separate places and deliberately never gives a number. Retrieval could not be more
   confident; the answer does not exist.
 
-An early result, from the retrieval stage alone with the model deliberately not consulted: the
-two deterministic safeguards stop **every** out-of-district question at zero cost and let
-through essentially **100% of all three near-OOD families**. That gap is not a defect — it is
-the measurement of how much work safeguard 3 is actually being asked to do, which is the
-quantity worth knowing before trusting any architecture that rests on it alone.
+Measured on that set, with a small locally-hosted model doing the reading: **FAR 5.0%** — three
+answers to sixty unanswerable questions — against **FRR 21.7%**.
+
+Run the retrieval stage alone, with the model deliberately not consulted, and the two
+deterministic safeguards stop *every* out-of-district question at zero cost while letting
+through essentially all of all three near-OOD families. That gap is not a defect: it is the
+measurement of how much work safeguard 3 is actually being asked to do, which is worth knowing
+before trusting any architecture that rests on it alone. Of the 34 near-OOD questions that
+reach it, it stops 31.
+
+The errors are more interesting than the rates.
+
+All three false answers are hip questions where the corpus contains the *field* — which
+approach was used, which implant — and the model turned a data-collection slot into a
+recommendation. *"Which surgical approach is best?"* and *"cemented or uncemented in the
+elderly?"* are answered by a corpus that only ever recorded what was chosen.
+
+The refusals cluster too. Enumerations fail — *"which outcome measures does this schema
+list"* — and so does terse keyword phrasing, while the same questions asked as full sentences
+succeed. That second one matters more than it looks: keyword phrasing is how a busy clinician
+actually types. Hybrid dense-plus-lexical retrieval does not make phrasing irrelevant; it
+changes which phrasings fail.
+
+A small model errs toward refusal. That is the safe direction and an exhausting one, and it is
+the number to re-measure first against a stronger model.
 
 Full results, including what the model catches and what it does not, are kept
 with the code and available on request.
